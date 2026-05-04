@@ -28,7 +28,7 @@ export default function Hero() {
           <div className="lg:grid lg:grid-cols-2 lg:items-end gap-8">
             <div>
               <AnimatedHeading
-                text={'Impulso el crecimiento\nde tu negocio.'}
+                text={'Impulso\nel crecimiento\nde tu negocio.'}
                 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-normal mb-4"
                 style={{ letterSpacing: '-0.04em' }}
               />
