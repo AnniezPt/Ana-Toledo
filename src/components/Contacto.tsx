@@ -5,29 +5,68 @@ const services = [
   'Consultoría estratégica',
   'Marketing digital',
   'Social media',
-  'No estoy seguro / a',
+  'Otro',
 ];
 
-const WHATSAPP_URL = 'https://wa.me/34600000000';
+const WHATSAPP_URL = 'https://wa.me/34682517137';
 const CALENDLY_URL = 'https://calendly.com/ana-toledo/15min';
 const INSTAGRAM_URL = 'https://instagram.com/anatoledo';
 const LINKEDIN_URL = 'https://linkedin.com/in/anatoledo';
-const EMAIL = 'hola@anatoledo.com';
+const EMAIL = 'anapereztoledo@icloud.com';
+
+// Pega aquí tu endpoint de Formspree para que los mensajes lleguen
+// directamente a anapereztoledo@icloud.com (instrucciones en el README).
+// Mientras esté en blanco, el botón abre el cliente de correo del usuario.
+const FORMSPREE_ENDPOINT = '';
 
 export default function Contacto() {
-  const [sent, setSent] = useState(false);
+  const [servicio, setServicio] = useState('');
+  const [otroServicio, setOtroServicio] = useState('');
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>(
+    'idle'
+  );
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const data = new FormData(e.currentTarget);
-    const subject = encodeURIComponent(
-      `Web · Interés en ${data.get('servicio') || 'tus servicios'}`
-    );
+    const form = e.currentTarget;
+    const data = new FormData(form);
+
+    const servicioFinal =
+      servicio === 'Otro' && otroServicio.trim()
+        ? otroServicio.trim()
+        : servicio || 'No especificado';
+    data.set('servicio', servicioFinal);
+
+    if (FORMSPREE_ENDPOINT) {
+      setStatus('sending');
+      try {
+        const res = await fetch(FORMSPREE_ENDPOINT, {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: data,
+        });
+        if (res.ok) {
+          setStatus('sent');
+          form.reset();
+          setServicio('');
+          setOtroServicio('');
+        } else {
+          setStatus('error');
+        }
+      } catch {
+        setStatus('error');
+      }
+      return;
+    }
+
+    const subject = encodeURIComponent(`Web · Interés en ${servicioFinal}`);
     const body = encodeURIComponent(
-      `Hola Ana,\n\nSoy ${data.get('nombre')}.\n\n${data.get('mensaje')}\n\nResponder a: ${data.get('email')}`
+      `Hola Ana,\n\nSoy ${data.get('nombre')}.\n\n${data.get(
+        'mensaje'
+      )}\n\nResponder a: ${data.get('email')}`
     );
     window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
-    setSent(true);
+    setStatus('sent');
   };
 
   return (
@@ -47,8 +86,9 @@ export default function Contacto() {
             Hablemos de tu proyecto.
           </h2>
           <p className="text-base md:text-lg text-gray-300 mb-8 max-w-lg">
-            Cuéntame en qué punto estás. Te respondo en 24 h con una propuesta de
-            siguientes pasos, o te digo honestamente si no soy la persona indicada.
+            Dame contexto sobre tu negocio y qué necesitas resolver. Analizaré
+            tu caso y en menos de 24 horas te contestaré con los próximos pasos
+            a seguir.
           </p>
 
           <div className="space-y-3">
@@ -78,7 +118,7 @@ export default function Contacto() {
                 <MessageCircle size={18} className="text-white" />
                 <div>
                   <p className="text-sm font-medium">WhatsApp directo</p>
-                  <p className="text-xs text-gray-400">Para preguntas rápidas</p>
+                  <p className="text-xs text-gray-400">+34 682 51 71 37</p>
                 </div>
               </div>
               <span className="text-gray-400 text-sm">→</span>
@@ -160,8 +200,9 @@ export default function Contacto() {
             <select
               id="servicio"
               name="servicio"
+              value={servicio}
+              onChange={(e) => setServicio(e.target.value)}
               className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-white/40 transition-colors"
-              defaultValue=""
             >
               <option value="" disabled className="bg-black">
                 Selecciona uno
@@ -172,6 +213,15 @@ export default function Contacto() {
                 </option>
               ))}
             </select>
+            {servicio === 'Otro' && (
+              <input
+                type="text"
+                value={otroServicio}
+                onChange={(e) => setOtroServicio(e.target.value)}
+                className="mt-3 w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-white/40 transition-colors"
+                placeholder="¿Qué tipo de servicio buscas?"
+              />
+            )}
           </div>
 
           <div>
@@ -190,10 +240,21 @@ export default function Contacto() {
 
           <button
             type="submit"
-            className="w-full bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+            disabled={status === 'sending'}
+            className="w-full bg-white text-black px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors disabled:opacity-60"
           >
-            {sent ? 'Abriendo correo...' : 'Enviar mensaje'}
+            {status === 'sending'
+              ? 'Enviando...'
+              : status === 'sent'
+              ? '¡Mensaje enviado!'
+              : 'Enviar mensaje'}
           </button>
+
+          {status === 'error' && (
+            <p className="text-xs text-red-400">
+              No se pudo enviar. Escríbeme directamente a {EMAIL}.
+            </p>
+          )}
 
           <p className="text-xs text-gray-500">
             Al enviar este formulario aceptas que use tus datos para responderte.

@@ -31,9 +31,9 @@ const pillars = [
     intro:
       'Cuentas que crecen con sentido y conectan con la audiencia que de verdad compra.',
     items: [
-      'Gestión integral de cuentas',
-      'Creación de contenido (Reels y TikToks)',
-      'Diseño de feed e identidad visual',
+      'Mentoría para la gestión estratégica de tus cuentas',
+      'Guía y dirección para la creación de contenido (Reels y TikToks)',
+      'Dirección de arte y pautas para el diseño de tu perfil',
       'Estrategias de crecimiento orgánico',
     ],
   },

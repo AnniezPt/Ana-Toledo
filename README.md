@@ -42,9 +42,25 @@ Antes de publicar, revisa estos valores en `src/components/Contacto.tsx`:
 - `CALENDLY_URL` — pon tu enlace real de Calendly
 - `INSTAGRAM_URL`, `LINKEDIN_URL`, `EMAIL`
 
-Y los datos en:
-- `src/components/CasosExito.tsx` (casos reales)
-- `src/components/InicioExtra.tsx` (logos y testimonios)
+## Recibir los mensajes del formulario en tu email (Formspree)
+
+Por defecto, el botón "Enviar mensaje" abre el cliente de correo del usuario.
+Para que los mensajes lleguen automáticamente a `anapereztoledo@icloud.com`:
+
+1. Ve a https://formspree.io/ y regístrate con `anapereztoledo@icloud.com`.
+2. Crea un formulario nuevo (botón "+ New form"). Pon como nombre algo
+   tipo "Web Ana Toledo".
+3. Te dará una URL de endpoint con esta forma:
+   `https://formspree.io/f/xxxxxxxx`
+4. Abre `src/components/Contacto.tsx` y pega esa URL en la constante
+   `FORMSPREE_ENDPOINT` (línea 22 aprox.):
+   ```ts
+   const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xxxxxxxx';
+   ```
+5. Commit + push. A los 2 min el formulario empieza a mandarte los mensajes
+   directamente al correo.
+
+Plan gratis: 50 envíos/mes (más que suficiente para empezar).
 
 ## Build
 

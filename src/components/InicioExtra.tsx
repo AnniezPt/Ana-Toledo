@@ -17,11 +17,11 @@ const previewServices = [
     icon: Sparkles,
     title: 'Social media',
     description:
-      'Gestión integral, contenido (Reels, TikToks), diseño de feed y estrategias de crecimiento.',
+      'Acompañamiento, mentoría estratégica y dirección creativa para que tus cuentas crezcan con sentido.',
   },
 ];
 
-const logos = ['Atelier', 'Nordic Co.', 'Lume', 'Bravo', 'Casa Verde', 'Studio 9'];
+const logos = [{ name: 'Leroy Merlín', note: 'Newsletter de IA para Retail' }];
 
 export default function InicioExtra() {
   return (
@@ -38,7 +38,7 @@ export default function InicioExtra() {
             ¿Tus redes no venden?
             <br />
             <span className="text-gray-400">
-              Te ayudo a convertir seguidores en clientes.
+              Creamos estrategias digitales basadas en datos y resultados.
             </span>
           </h2>
           <p className="mt-6 text-base md:text-lg text-gray-300 max-w-2xl mx-auto">
@@ -102,13 +102,13 @@ export default function InicioExtra() {
           <p className="text-center text-sm uppercase tracking-[0.2em] text-gray-400 mb-8">
             Marcas que han confiado en mí
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 items-center">
+          <div className="flex flex-col items-center gap-1">
             {logos.map((l) => (
-              <div
-                key={l}
-                className="text-center text-gray-400 text-lg font-light tracking-wide opacity-70 hover:opacity-100 transition-opacity"
-              >
-                {l}
+              <div key={l.name} className="text-center">
+                <p className="text-gray-200 text-2xl md:text-3xl font-light tracking-wide">
+                  {l.name}
+                </p>
+                <p className="text-gray-500 text-sm mt-1">{l.note}</p>
               </div>
             ))}
           </div>
@@ -121,7 +121,7 @@ export default function InicioExtra() {
                 claridad.”
               </blockquote>
               <figcaption className="mt-4 text-sm text-gray-400">
-                — Lucía M., fundadora de Atelier
+                — Lucía M.
               </figcaption>
             </figure>
             <figure className="liquid-glass rounded-2xl p-6 md:p-8 border border-white/10">
@@ -131,7 +131,7 @@ export default function InicioExtra() {
                 después.”
               </blockquote>
               <figcaption className="mt-4 text-sm text-gray-400">
-                — Javier R., CEO de Nordic Co.
+                — Javier R.
               </figcaption>
             </figure>
           </div>

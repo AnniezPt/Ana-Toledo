@@ -34,26 +34,28 @@ export default function SobreMi() {
             Soy Ana Toledo.
             <br />
             <span className="text-gray-400">
-              Estrategia y marketing con cabeza.
+              Estrategia, marketing digital e Inteligencia Artificial aplicada.
             </span>
           </h2>
           <div className="space-y-5 text-base md:text-lg text-gray-300 leading-relaxed">
             <p>
-              Llevo más de ocho años trabajando con marcas y emprendedores en
-              España y Latinoamérica. He pasado por agencias, departamentos
-              internos y mi propio estudio, y he visto el patrón que se repite:
-              proyectos buenísimos que se quedan a medias por falta de
-              estrategia.
+              Llevo más de 4 años trabajando con marcas y emprendedores en
+              España. Vengo del mundo de la consultoría (donde pasé 2 años
+              dando forma a negocios) y llevo 2 años inmersa en el marketing
+              digital. Mi gran diferenciador: aplico la Inteligencia Artificial
+              para optimizar procesos, afinar estrategias y multiplicar
+              resultados.
             </p>
             <p>
-              Hoy ayudo a fundadores, equipos pequeños y marcas en crecimiento a
-              poner orden en su marketing y a construir sistemas que generan
+              He visto el patrón que se repite: proyectos buenísimos que se
+              quedan a medias por falta de estrategia.
+            </p>
+            <p>
+              Hoy ayudo a fundadores, equipos pequeños y marcas en crecimiento
+              a poner orden en su marketing y a construir sistemas que generan
               ventas, no solo likes.
             </p>
-            <p>
-              Trabajo desde Madrid, en remoto con clientes de cualquier país, y
-              huyo del postureo y los gurús de fórmulas mágicas.
-            </p>
+            <p>Trabajo desde Madrid, en remoto con clientes de cualquier país.</p>
           </div>
         </div>
 
