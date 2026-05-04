@@ -14,14 +14,14 @@ Abre http://localhost:5173.
 
 ## Imagen de fondo (skyline de Madrid)
 
-El hero usa la imagen `public/madrid.jpg` como fondo a pantalla completa.
+El hero usa la imagen `public/madrid.png` como fondo a pantalla completa.
 Guarda ahí la imagen del skyline de Madrid que quieras usar (la que adjuntaste
 en el chat sirve perfectamente). Mientras el archivo no exista, el hero muestra
 un degradado de respaldo en tonos cielo / atardecer.
 
 ```
 public/
-  madrid.jpg   ← coloca aquí tu imagen
+  madrid.png   ← coloca aquí tu imagen
 ```
 
 ## Estructura
@@ -57,7 +57,7 @@ npm run preview
 
 El workflow `.github/workflows/deploy.yml` ya está configurado. Para activarlo:
 
-1. **Sube la imagen del skyline de Madrid** al repo en `public/madrid.jpg`.
+1. **Sube la imagen del skyline de Madrid** al repo en `public/madrid.png`.
    Lo más fácil: en la web de GitHub, abre la carpeta `public/`, click en
    "Add file" → "Upload files" y arrastra la imagen.
 
