@@ -17,7 +17,7 @@ const EMAIL = 'anapereztoledo@icloud.com';
 // Pega aquí tu endpoint de Formspree para que los mensajes lleguen
 // directamente a anapereztoledo@icloud.com (instrucciones en el README).
 // Mientras esté en blanco, el botón abre el cliente de correo del usuario.
-const FORMSPREE_ENDPOINT = '';
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mgodabdy';
 
 export default function Contacto() {
   const [servicio, setServicio] = useState('');
