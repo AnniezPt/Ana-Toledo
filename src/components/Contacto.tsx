@@ -9,7 +9,12 @@ const services = [
 ];
 
 const WHATSAPP_URL = 'https://wa.me/34682517137';
-const CALENDLY_URL = 'https://calendly.com/ana-toledo/15min';
+const WHATSAPP_VIDEOCALL_URL =
+  'https://wa.me/34682517137?text=' +
+  encodeURIComponent(
+    'Hola Ana, me gustaría reservar una videollamada exploratoria de 15 min.'
+  );
+const CALENDLY_URL = '';
 const INSTAGRAM_URL = 'https://instagram.com/anatoledo';
 const LINKEDIN_URL = 'https://linkedin.com/in/anatoledo';
 const EMAIL = 'anapereztoledo@icloud.com';
@@ -93,7 +98,7 @@ export default function Contacto() {
 
           <div className="space-y-3">
             <a
-              href={CALENDLY_URL}
+              href={CALENDLY_URL || WHATSAPP_VIDEOCALL_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-between liquid-glass border border-white/10 rounded-xl px-5 py-4 hover:border-white/30 transition-colors"
