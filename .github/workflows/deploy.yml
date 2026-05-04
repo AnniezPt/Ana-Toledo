@@ -32,7 +32,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_BASE: /ana-toledo/
+          VITE_BASE: /Ana-Toledo/
 
       - uses: actions/configure-pages@v5
 
