@@ -52,3 +52,21 @@ Y los datos en:
 npm run build
 npm run preview
 ```
+
+## Deploy en GitHub Pages (lo que tienes que hacer tú)
+
+El workflow `.github/workflows/deploy.yml` ya está configurado. Para activarlo:
+
+1. **Sube la imagen del skyline de Madrid** al repo en `public/madrid.jpg`.
+   Lo más fácil: en la web de GitHub, abre la carpeta `public/`, click en
+   "Add file" → "Upload files" y arrastra la imagen.
+
+2. **Activa Pages**: en el repo de GitHub → Settings → Pages →
+   "Build and deployment" → Source: **GitHub Actions**.
+
+A partir de ahí, cada push a `main` o a `claude/build-services-website-7fkiu`
+construye y despliega automáticamente.
+
+URL final: **https://anniezpt.github.io/ana-toledo/**
+
+(La primera vez tarda 1-2 min. Las siguientes, segundos.)

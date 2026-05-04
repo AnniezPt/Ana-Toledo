@@ -13,7 +13,7 @@ export default function Hero() {
       }}
     >
       <img
-        src="/madrid.jpg"
+        src={`${import.meta.env.BASE_URL}madrid.jpg`}
         alt="Skyline de Madrid"
         className="absolute inset-0 w-full h-full object-cover z-0"
         onError={(e) => {
