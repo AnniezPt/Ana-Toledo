@@ -14,7 +14,7 @@ const WHATSAPP_VIDEOCALL_URL =
   encodeURIComponent(
     'Hola Ana, me gustaría reservar una videollamada exploratoria de 15 min.'
   );
-const CALENDLY_URL = '';
+const CALENDLY_URL = 'https://calendly.com/anapereztoledo/videollamada-exploratoria';
 const INSTAGRAM_URL = 'https://instagram.com/anatoledo';
 const LINKEDIN_URL = 'https://linkedin.com/in/anatoledo';
 const EMAIL = 'anapereztoledo@icloud.com';
