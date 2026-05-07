@@ -33,7 +33,6 @@ const logos = [
   {
     name: 'Leroy Merlín',
     src: 'Leroym.PNG',
-    note: 'Newsletter de IA para Retail',
   },
 ];
 
