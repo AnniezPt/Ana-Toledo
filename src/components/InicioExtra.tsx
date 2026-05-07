@@ -23,8 +23,16 @@ const previewServices = [
 
 const logos = [
   {
+    name: 'Roche',
+    src: 'Rochelogo.PNG',
+  },
+  {
+    name: 'Bayer',
+    src: 'Bayerlogo.PNG',
+  },
+  {
     name: 'Leroy Merlín',
-    src: 'leroy-merlin.png',
+    src: 'Leroym.PNG',
     note: 'Newsletter de IA para Retail',
   },
 ];
