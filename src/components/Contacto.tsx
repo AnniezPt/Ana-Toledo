@@ -98,10 +98,11 @@ export default function Contacto() {
 
           <div className="space-y-3">
             <a
+              id="reservar"
               href={CALENDLY_URL || WHATSAPP_VIDEOCALL_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between liquid-glass border border-white/10 rounded-xl px-5 py-4 hover:border-white/30 transition-colors"
+              className="flex items-center justify-between liquid-glass border border-white/10 rounded-xl px-5 py-4 hover:border-white/30 transition-colors scroll-mt-24"
             >
               <div className="flex items-center gap-3">
                 <Calendar size={18} className="text-white" />
@@ -114,10 +115,11 @@ export default function Contacto() {
             </a>
 
             <a
+              id="whatsapp"
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-between liquid-glass border border-white/10 rounded-xl px-5 py-4 hover:border-white/30 transition-colors"
+              className="flex items-center justify-between liquid-glass border border-white/10 rounded-xl px-5 py-4 hover:border-white/30 transition-colors scroll-mt-24"
             >
               <div className="flex items-center gap-3">
                 <MessageCircle size={18} className="text-white" />
@@ -130,8 +132,9 @@ export default function Contacto() {
             </a>
 
             <a
+              id="email"
               href={`mailto:${EMAIL}`}
-              className="flex items-center justify-between liquid-glass border border-white/10 rounded-xl px-5 py-4 hover:border-white/30 transition-colors"
+              className="flex items-center justify-between liquid-glass border border-white/10 rounded-xl px-5 py-4 hover:border-white/30 transition-colors scroll-mt-24"
             >
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-white" />
@@ -167,8 +170,9 @@ export default function Contacto() {
         </div>
 
         <form
+          id="formulario"
           onSubmit={handleSubmit}
-          className="liquid-glass rounded-2xl p-6 md:p-8 border border-white/10 space-y-5"
+          className="liquid-glass rounded-2xl p-6 md:p-8 border border-white/10 space-y-5 scroll-mt-24"
         >
           <div>
             <label htmlFor="nombre" className="block text-sm text-gray-300 mb-2">

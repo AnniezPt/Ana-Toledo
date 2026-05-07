@@ -59,7 +59,7 @@ export default function SobreMi() {
           </div>
         </div>
 
-        <div className="space-y-4">
+        <div id="valores" className="space-y-4 scroll-mt-24">
           {values.map((v) => (
             <div
               key={v.title}

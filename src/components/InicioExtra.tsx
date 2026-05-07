@@ -21,25 +21,18 @@ const previewServices = [
   },
 ];
 
-const logos = [
-  {
-    name: 'Roche',
-    src: 'Rochelogo.PNG',
-  },
-  {
-    name: 'Bayer',
-    src: 'Bayerlogo.PNG',
-  },
-  {
-    name: 'Leroy Merlín',
-    src: 'Leroym.PNG',
-  },
+type Logo = { name: string; src: string; note?: string };
+
+const logos: Logo[] = [
+  { name: 'Roche', src: 'Rochelogo.PNG' },
+  { name: 'Bayer', src: 'Bayerlogo.PNG' },
+  { name: 'Leroy Merlín', src: 'Leroym.PNG' },
 ];
 
 export default function InicioExtra() {
   return (
     <>
-      <section className="bg-black text-white px-6 md:px-12 lg:px-16 py-20 md:py-28 border-t border-white/10">
+      <section id="problema" className="bg-black text-white px-6 md:px-12 lg:px-16 py-20 md:py-28 border-t border-white/10 scroll-mt-24">
         <div className="max-w-5xl mx-auto text-center">
           <p className="text-sm uppercase tracking-[0.2em] text-gray-400 mb-4">
             ¿Te suena?
@@ -62,7 +55,7 @@ export default function InicioExtra() {
         </div>
       </section>
 
-      <section className="bg-black text-white px-6 md:px-12 lg:px-16 py-20 md:py-28 border-t border-white/10">
+      <section id="lo-que-hago" className="bg-black text-white px-6 md:px-12 lg:px-16 py-20 md:py-28 border-t border-white/10 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
             <div>
@@ -110,7 +103,7 @@ export default function InicioExtra() {
         </div>
       </section>
 
-      <section className="bg-black text-white px-6 md:px-12 lg:px-16 py-16 border-t border-white/10">
+      <section id="marcas" className="bg-black text-white px-6 md:px-12 lg:px-16 py-16 border-t border-white/10 scroll-mt-24">
         <div className="max-w-6xl mx-auto">
           <p className="text-center text-sm uppercase tracking-[0.2em] text-gray-400 mb-8">
             Marcas que han confiado en mí
@@ -132,7 +125,7 @@ export default function InicioExtra() {
             ))}
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6 mt-14">
+          <div id="testimonios" className="grid md:grid-cols-2 gap-6 mt-14 scroll-mt-24">
             <figure className="liquid-glass rounded-2xl p-6 md:p-8 border border-white/10">
               <blockquote className="text-base md:text-lg text-gray-200 leading-relaxed">
                 “En tres meses pasamos de no saber qué publicar a tener un sistema

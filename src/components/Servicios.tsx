@@ -2,6 +2,7 @@ import { Compass, Megaphone, Sparkles, Check } from 'lucide-react';
 
 const pillars = [
   {
+    id: 'consultoria',
     icon: Compass,
     title: 'Consultoría estratégica',
     intro:
@@ -14,6 +15,7 @@ const pillars = [
     ],
   },
   {
+    id: 'marketing-digital',
     icon: Megaphone,
     title: 'Marketing digital',
     intro:
@@ -26,6 +28,7 @@ const pillars = [
     ],
   },
   {
+    id: 'social-media',
     icon: Sparkles,
     title: 'Social media',
     intro:
@@ -69,7 +72,8 @@ export default function Servicios() {
             return (
               <article
                 key={p.title}
-                className="liquid-glass rounded-2xl p-6 md:p-8 border border-white/10 flex flex-col"
+                id={p.id}
+                className="liquid-glass rounded-2xl p-6 md:p-8 border border-white/10 flex flex-col scroll-mt-24"
               >
                 <div className="w-11 h-11 rounded-lg bg-white/10 flex items-center justify-center mb-5">
                   <Icon size={20} className="text-white" />
