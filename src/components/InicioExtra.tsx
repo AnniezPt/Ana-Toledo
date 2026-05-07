@@ -21,7 +21,13 @@ const previewServices = [
   },
 ];
 
-const logos = [{ name: 'Leroy Merlín', note: 'Newsletter de IA para Retail' }];
+const logos = [
+  {
+    name: 'Leroy Merlín',
+    src: 'leroy-merlin.png',
+    note: 'Newsletter de IA para Retail',
+  },
+];
 
 export default function InicioExtra() {
   return (
@@ -102,13 +108,19 @@ export default function InicioExtra() {
           <p className="text-center text-sm uppercase tracking-[0.2em] text-gray-400 mb-8">
             Marcas que han confiado en mí
           </p>
-          <div className="flex flex-col items-center gap-1">
+          <div className="flex flex-wrap items-start justify-center gap-12 md:gap-16">
             {logos.map((l) => (
-              <div key={l.name} className="text-center">
-                <p className="text-gray-200 text-2xl md:text-3xl font-light tracking-wide">
-                  {l.name}
-                </p>
-                <p className="text-gray-500 text-sm mt-1">{l.note}</p>
+              <div key={l.name} className="flex flex-col items-center text-center">
+                <img
+                  src={`${import.meta.env.BASE_URL}${l.src}`}
+                  alt={l.name}
+                  className="h-12 md:h-16 max-w-[180px] object-contain"
+                />
+                {l.note && (
+                  <p className="text-gray-500 text-sm mt-3 max-w-[220px]">
+                    {l.note}
+                  </p>
+                )}
               </div>
             ))}
           </div>
