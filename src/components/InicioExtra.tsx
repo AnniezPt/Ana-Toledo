@@ -124,29 +124,6 @@ export default function InicioExtra() {
               </div>
             ))}
           </div>
-
-          <div id="testimonios" className="grid md:grid-cols-2 gap-6 mt-14 scroll-mt-24">
-            <figure className="liquid-glass rounded-2xl p-6 md:p-8 border border-white/10">
-              <blockquote className="text-base md:text-lg text-gray-200 leading-relaxed">
-                “En tres meses pasamos de no saber qué publicar a tener un sistema
-                que nos trae clientes cada semana. Ana no vende humo: vende
-                claridad.”
-              </blockquote>
-              <figcaption className="mt-4 text-sm text-gray-400">
-                — Lucía M.
-              </figcaption>
-            </figure>
-            <figure className="liquid-glass rounded-2xl p-6 md:p-8 border border-white/10">
-              <blockquote className="text-base md:text-lg text-gray-200 leading-relaxed">
-                “Multiplicamos por 4 el ROI de Meta Ads y por fin entendemos qué
-                campaña funciona y por qué. Trabajar con Ana ha sido un antes y un
-                después.”
-              </blockquote>
-              <figcaption className="mt-4 text-sm text-gray-400">
-                — Javier R.
-              </figcaption>
-            </figure>
-          </div>
         </div>
       </section>
     </>

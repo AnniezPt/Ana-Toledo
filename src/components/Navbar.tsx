@@ -16,7 +16,6 @@ const navLinks: NavLink[] = [
       { href: '#problema', label: '¿Tus redes no venden?' },
       { href: '#lo-que-hago', label: 'Lo que hago' },
       { href: '#marcas', label: 'Marcas' },
-      { href: '#testimonios', label: 'Testimonios' },
     ],
   },
   {
