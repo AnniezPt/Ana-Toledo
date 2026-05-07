@@ -68,8 +68,8 @@ export default function Navbar() {
   };
 
   return (
-    <div className="px-6 md:px-12 lg:px-16 pt-6 relative z-30">
-      <nav className="liquid-glass rounded-xl px-4 py-2 flex items-center justify-between !overflow-visible">
+    <div className="fixed top-0 left-0 right-0 px-4 sm:px-6 md:px-12 lg:px-16 pt-4 md:pt-6 z-50">
+      <nav className="liquid-glass rounded-xl px-3 md:px-4 py-2 flex items-center justify-between gap-2 !overflow-visible">
         <a
           href="#inicio"
           className="text-xl md:text-2xl font-semibold tracking-tight whitespace-nowrap"
@@ -140,7 +140,7 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="md:hidden mt-2 liquid-glass rounded-xl px-2 py-2 flex flex-col">
+        <div className="md:hidden mt-2 liquid-glass rounded-xl px-2 py-2 flex flex-col max-h-[calc(100vh-6rem)] overflow-y-auto">
           {navLinks.map((link, i) => (
             <div key={link.label}>
               <div className="flex items-center justify-between">

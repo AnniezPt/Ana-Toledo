@@ -1,4 +1,3 @@
-import Navbar from './Navbar';
 import AnimatedHeading from './AnimatedHeading';
 import FadeIn from './FadeIn';
 
@@ -23,8 +22,6 @@ export default function Hero() {
       />
 
       <div className="relative z-10 flex flex-col flex-1">
-        <Navbar />
-
         <div className="px-6 md:px-12 lg:px-16 flex-1 flex flex-col justify-end pb-12 lg:pb-16">
           <div className="lg:grid lg:grid-cols-2 lg:items-end gap-8">
             <div>

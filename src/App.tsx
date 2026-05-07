@@ -1,3 +1,4 @@
+import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import InicioExtra from './components/InicioExtra';
 import Servicios from './components/Servicios';
@@ -8,14 +9,17 @@ import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <main className="bg-black text-white">
-      <Hero />
-      <InicioExtra />
-      <Servicios />
-      <CasosExito />
-      <SobreMi />
-      <Contacto />
-      <Footer />
-    </main>
+    <>
+      <Navbar />
+      <main className="bg-black text-white">
+        <Hero />
+        <InicioExtra />
+        <Servicios />
+        <CasosExito />
+        <SobreMi />
+        <Contacto />
+        <Footer />
+      </main>
+    </>
   );
 }
