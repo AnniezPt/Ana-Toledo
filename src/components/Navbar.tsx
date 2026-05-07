@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
 type NavLink = {
@@ -23,6 +23,7 @@ const navLinks: NavLink[] = [
     href: '#servicios',
     label: 'Servicios',
     sub: [
+      { href: '#servicios', label: 'Todos los servicios' },
       { href: '#consultoria', label: 'Consultoría estratégica' },
       { href: '#marketing-digital', label: 'Marketing digital' },
       { href: '#social-media', label: 'Social media' },
@@ -41,6 +42,7 @@ const navLinks: NavLink[] = [
     href: '#contacto',
     label: 'Contacto',
     sub: [
+      { href: '#contacto', label: 'Vista general' },
       { href: '#reservar', label: 'Reservar videollamada' },
       { href: '#whatsapp', label: 'WhatsApp' },
       { href: '#email', label: 'Email' },
@@ -54,6 +56,7 @@ export default function Navbar() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [mobileSubOpen, setMobileSubOpen] = useState<number | null>(null);
   const closeTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const navRef = useRef<HTMLDivElement | null>(null);
 
   const handleEnter = (i: number) => {
     if (closeTimeout.current) {
@@ -64,11 +67,25 @@ export default function Navbar() {
   };
 
   const handleLeave = () => {
-    closeTimeout.current = setTimeout(() => setOpenIndex(null), 120);
+    closeTimeout.current = setTimeout(() => setOpenIndex(null), 200);
   };
 
+  useEffect(() => {
+    if (openIndex === null) return;
+    const handler = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        setOpenIndex(null);
+      }
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [openIndex]);
+
   return (
-    <div className="fixed top-0 left-0 right-0 px-4 sm:px-6 md:px-12 lg:px-16 pt-4 md:pt-6 z-50">
+    <div
+      ref={navRef}
+      className="fixed top-0 left-0 right-0 px-4 sm:px-6 md:px-12 lg:px-16 pt-4 md:pt-6 z-50"
+    >
       <nav className="liquid-glass rounded-xl px-3 md:px-4 py-2 flex items-center justify-between gap-2 !overflow-visible">
         <a
           href="#inicio"
@@ -87,8 +104,15 @@ export default function Navbar() {
             >
               <a
                 href={link.href}
-                onClick={() => setOpenIndex(null)}
-                className="inline-flex items-center gap-1 text-sm text-white hover:text-gray-300 transition-colors px-3 py-2"
+                onClick={(e) => {
+                  if (link.sub) {
+                    e.preventDefault();
+                    setOpenIndex(openIndex === i ? null : i);
+                  } else {
+                    setOpenIndex(null);
+                  }
+                }}
+                className="inline-flex items-center gap-1 text-sm text-white hover:text-gray-300 transition-colors px-3 py-2 cursor-pointer select-none"
               >
                 {link.label}
                 {link.sub && (
@@ -102,21 +126,19 @@ export default function Navbar() {
               </a>
 
               {link.sub && openIndex === i && (
-                <div
-                  onMouseEnter={() => handleEnter(i)}
-                  onMouseLeave={handleLeave}
-                  className="absolute top-full left-0 mt-2 liquid-glass rounded-xl py-2 min-w-[240px] flex flex-col"
-                >
-                  {link.sub.map((s) => (
-                    <a
-                      key={s.href}
-                      href={s.href}
-                      onClick={() => setOpenIndex(null)}
-                      className="text-sm text-gray-200 hover:text-white hover:bg-white/10 px-4 py-2 transition-colors"
-                    >
-                      {s.label}
-                    </a>
-                  ))}
+                <div className="absolute top-full left-0 pt-2">
+                  <div className="liquid-glass rounded-xl py-2 min-w-[240px] flex flex-col">
+                    {link.sub.map((s) => (
+                      <a
+                        key={s.href}
+                        href={s.href}
+                        onClick={() => setOpenIndex(null)}
+                        className="text-sm text-gray-200 hover:text-white hover:bg-white/10 px-4 py-2 transition-colors"
+                      >
+                        {s.label}
+                      </a>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
