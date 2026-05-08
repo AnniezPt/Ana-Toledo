@@ -11,14 +11,13 @@ export default function Hero() {
           'linear-gradient(180deg, #b9d3eb 0%, #e3d9c8 55%, #4a5d6e 100%)',
       }}
     >
-      <video
-        src={`${import.meta.env.BASE_URL}04475b08-2367-44bb-85a8-d928bcab496c.mp4`}
-        poster={`${import.meta.env.BASE_URL}madrid.png.JPG`}
-        autoPlay
-        loop
-        muted
-        playsInline
+      <img
+        src={`${import.meta.env.BASE_URL}madrid.png.JPG`}
+        alt="Skyline de Madrid"
         className="absolute inset-0 w-full h-full object-cover z-0"
+        onError={(e) => {
+          (e.currentTarget as HTMLImageElement).style.display = 'none';
+        }}
       />
 
       <div className="relative z-10 flex flex-col flex-1">
