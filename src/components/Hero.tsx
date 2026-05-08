@@ -19,6 +19,10 @@ export default function Hero() {
           (e.currentTarget as HTMLImageElement).style.display = 'none';
         }}
       />
+      <div
+        aria-hidden
+        className="absolute inset-0 z-[1] md:hidden pointer-events-none bg-gradient-to-t from-black/85 via-black/40 to-transparent"
+      />
 
       <div className="relative z-10 flex flex-col flex-1">
         <div className="px-6 md:px-12 lg:px-16 flex-1 flex flex-col justify-end pb-12 lg:pb-16">
